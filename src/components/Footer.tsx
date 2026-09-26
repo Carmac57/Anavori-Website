@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Download } from "lucide-react";
 import type { NavLink } from "../types";
+import { PAGES_BASE } from "../config";
 
 interface FooterProps {
   navLinks: NavLink[];
@@ -78,7 +79,7 @@ export function Footer({
               ))}
               <li>
                 <a
-                  href="/privacy-policy"
+                  href={`${PAGES_BASE}/privacy-policy`}
                   onClick={(e) => {
                     if (onOpenPrivacy) {
                       e.preventDefault();
@@ -92,7 +93,7 @@ export function Footer({
               </li>
               <li>
                 <a
-                  href="/terms-of-service"
+                  href={`${PAGES_BASE}/terms-of-service`}
                   onClick={(e) => {
                     if (onOpenTerms) {
                       e.preventDefault();
@@ -106,7 +107,7 @@ export function Footer({
               </li>
               <li>
                 <a
-                  href="/security"
+                  href={`${PAGES_BASE}/security`}
                   onClick={(e) => {
                     if (onOpenSecurity) {
                       e.preventDefault();
@@ -132,7 +133,7 @@ export function Footer({
             </p>
             <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500">
               <a
-                href="/privacy-policy"
+                href={`${PAGES_BASE}/privacy-policy`}
                 onClick={(e) => {
                   if (onOpenPrivacy) {
                     e.preventDefault();
@@ -145,7 +146,7 @@ export function Footer({
               </a>
               <span>•</span>
               <a
-                href="/terms-of-service"
+                href={`${PAGES_BASE}/terms-of-service`}
                 onClick={(e) => {
                   if (onOpenTerms) {
                     e.preventDefault();
@@ -158,7 +159,7 @@ export function Footer({
               </a>
               <span>•</span>
               <a
-                href="/security"
+                href={`${PAGES_BASE}/security`}
                 onClick={(e) => {
                   if (onOpenSecurity) {
                     e.preventDefault();

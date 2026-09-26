@@ -17,6 +17,7 @@ import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { SecurityModel } from "./components/SecurityModel";
 import { Footer } from "./components/Footer";
+import { PAGES_BASE } from "./config";
 
 const navLinks: NavLink[] = [
   { name: "Overview", href: "#hero" },
@@ -89,19 +90,19 @@ export default function App() {
 
   // Navigation helpers
   const navigateToPrivacy = () => {
-    window.history.pushState({ from: "app" }, "", "/privacy-policy");
+    window.history.pushState({ from: "app" }, "", `${PAGES_BASE}/privacy-policy`);
     setCurrentRoute("privacy");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const navigateToTerms = () => {
-    window.history.pushState({ from: "app" }, "", "/terms-of-service");
+    window.history.pushState({ from: "app" }, "", `${PAGES_BASE}/terms-of-service`);
     setCurrentRoute("terms");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const navigateToSecurity = () => {
-    window.history.pushState({ from: "app" }, "", "/security");
+    window.history.pushState({ from: "app" }, "", `${PAGES_BASE}/security`);
     setCurrentRoute("security");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -122,7 +123,7 @@ export default function App() {
 
   // Return to homepage directly at the FAQ section (#faq)
   const navigateToFAQ = () => {
-    window.history.pushState({ from: "legal-return" }, "", "/#faq");
+    window.history.pushState({ from: "legal-return" }, "", `${PAGES_BASE}/#faq`);
     setCurrentRoute("home");
     setTimeout(() => {
       scrollToFAQSection(true);

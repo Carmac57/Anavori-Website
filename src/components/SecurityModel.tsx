@@ -6,6 +6,7 @@ import {
   Download,
   Mail
 } from "lucide-react";
+import { PAGES_BASE } from "../config";
 
 interface SecurityModelProps {
   onBack: () => void;
@@ -41,7 +42,7 @@ export function SecurityModel({ onBack, onNavigatePrivacy, onNavigateTerms }: Se
             </button>
 
             <a
-              href="/#faq"
+              href={`${PAGES_BASE}/#faq`}
               onClick={(e) => {
                 e.preventDefault();
                 onBack();
@@ -334,7 +335,7 @@ export function SecurityModel({ onBack, onNavigatePrivacy, onNavigateTerms }: Se
             <p className="text-sm sm:text-base leading-relaxed mt-2">
               Additional information about AI processing and personal information is provided in the{" "}
               <a
-                href="/privacy-policy"
+                href={`${PAGES_BASE}/privacy-policy`}
                 onClick={(e) => {
                   if (onNavigatePrivacy) {
                     e.preventDefault();
@@ -549,7 +550,7 @@ export function SecurityModel({ onBack, onNavigatePrivacy, onNavigateTerms }: Se
             <p className="text-sm sm:text-base leading-relaxed mt-2">
               More information about third-party data processing is available in the{" "}
               <a
-                href="/privacy-policy"
+                href={`${PAGES_BASE}/privacy-policy`}
                 onClick={(e) => {
                   if (onNavigatePrivacy) {
                     e.preventDefault();
@@ -676,7 +677,7 @@ export function SecurityModel({ onBack, onNavigatePrivacy, onNavigateTerms }: Se
               <ul className="flex flex-wrap items-center gap-4 text-sm">
                 <li>
                   <a
-                    href="/privacy-policy"
+                    href={`${PAGES_BASE}/privacy-policy`}
                     onClick={(e) => {
                       if (onNavigatePrivacy) {
                         e.preventDefault();
@@ -691,7 +692,7 @@ export function SecurityModel({ onBack, onNavigatePrivacy, onNavigateTerms }: Se
                 <li className="text-slate-300">•</li>
                 <li>
                   <a
-                    href="/terms-of-service"
+                    href={`${PAGES_BASE}/terms-of-service`}
                     onClick={(e) => {
                       if (onNavigateTerms) {
                         e.preventDefault();

@@ -35,6 +35,9 @@ function spaRoutesPlugin() {
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
+    // Serve the site from the GitHub Pages project subpath.
+    // Repo name must match the repository on GitHub.
+    base: env.GITHUB_PAGES_BASE || '/Anavori-Website/',
     plugins: [react(), tailwindcss(), spaRoutesPlugin()],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

@@ -10,6 +10,7 @@ import {
   Mail,
   ExternalLink
 } from "lucide-react";
+import { PAGES_BASE } from "../config";
 
 interface TermsOfServiceProps {
   onBack: () => void;
@@ -44,7 +45,7 @@ export function TermsOfService({ onBack, onNavigatePrivacy }: TermsOfServiceProp
             </button>
 
             <a
-              href="/#faq"
+              href={`${PAGES_BASE}/#faq`}
               onClick={(e) => {
                 e.preventDefault();
                 onBack();
@@ -407,7 +408,7 @@ export function TermsOfService({ onBack, onNavigatePrivacy }: TermsOfServiceProp
             <p className="text-sm sm:text-base leading-relaxed">
               Your use of Anavori is also governed by the{" "}
               <a
-                href="/privacy-policy"
+                href={`${PAGES_BASE}/privacy-policy`}
                 onClick={(e) => {
                   e.preventDefault();
                   onNavigatePrivacy();

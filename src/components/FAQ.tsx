@@ -10,6 +10,7 @@ import {
   ShieldCheck,
   Sparkles
 } from "lucide-react";
+import { PAGES_BASE } from "../config";
 
 interface FAQItem {
   id: string;
@@ -166,7 +167,7 @@ export function FAQ({ onOpenPrivacy }: FAQProps) {
           Anavori is designed with user privacy in mind. For detailed information
           about how information is collected, stored, and used, please refer to the{" "}
           <a
-            href="/privacy-policy"
+            href={`${PAGES_BASE}/privacy-policy`}
             onClick={(e) => {
               if (onOpenPrivacy) {
                 e.preventDefault();

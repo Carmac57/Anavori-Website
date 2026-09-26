@@ -11,6 +11,7 @@ import {
   Mail,
   ExternalLink
 } from "lucide-react";
+import { PAGES_BASE } from "../config";
 
 interface PrivacyPolicyProps {
   onBack: () => void;
@@ -45,7 +46,7 @@ export function PrivacyPolicy({ onBack, onNavigateTerms }: PrivacyPolicyProps) {
             </button>
 
             <a
-              href="/#faq"
+              href={`${PAGES_BASE}/#faq`}
               onClick={(e) => {
                 e.preventDefault();
                 onBack();
@@ -729,7 +730,7 @@ export function PrivacyPolicy({ onBack, onNavigateTerms }: PrivacyPolicyProps) {
           <div className="flex items-center gap-4 text-xs text-slate-500 font-medium">
             {onNavigateTerms && (
               <a
-                href="/terms-of-service"
+                href={`${PAGES_BASE}/terms-of-service`}
                 onClick={(e) => {
                   e.preventDefault();
                   onNavigateTerms();
