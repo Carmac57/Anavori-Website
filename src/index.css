@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-brand-purple: #059669; /* Primary Anavori Emerald Green */
+  --color-brand-cyan: #d97706;   /* Secondary Anavori Gold / Amber */
+  --color-brand-emerald: #059669;
+  --color-brand-emerald-dark: #047857;
+  --color-brand-emerald-light: #10b981;
+  --color-brand-gold: #d97706;
+  --color-brand-gold-dark: #b45309;
+  --color-brand-gold-light: #f59e0b;
+  --color-bg-dark: #ffffff;      /* Mapped to clean white */
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-800 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900;
+    background-image: 
+      radial-gradient(circle at 50% -10%, rgba(5, 150, 105, 0.06), transparent 55%),
+      radial-gradient(circle at 95% 20%, rgba(217, 119, 6, 0.04), transparent 45%),
+      radial-gradient(circle at 5% 70%, rgba(5, 150, 105, 0.04), transparent 50%);
+  }
+}
+
+/* Premium Light Background Grid */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 65%, transparent 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.glass-premium {
+  background: #ffffff;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 
+    0 10px 30px -4px rgba(15, 23, 42, 0.05),
+    0 4px 10px -2px rgba(15, 23, 42, 0.02);
+}
+
+.glow-purple {
+  box-shadow: 0 10px 30px -5px rgba(5, 150, 105, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 10px 30px -5px rgba(217, 119, 6, 0.3);
+}
+
+.glow-text-purple {
+  color: #047857;
+}
+
+.glow-text-cyan {
+  color: #b45309;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.01); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(25px, -35px) scale(1.05); }
+  66% { transform: translate(-15px, 15px) scale(0.97); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(-25px, 30px) scale(0.95); }
+  66% { transform: translate(20px, -15px) scale(1.03); }
+}
+
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 18s ease-in-out infinite;
+}
+
+.animate-infinite-scroll {
+  display: flex;
+  width: max-content;
+  animation: infinite-scroll 45s linear infinite;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Scrollbar customization for light theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

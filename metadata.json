@@ -1,0 +1,6 @@
+{
+  "name": "Anavori Website",
+  "description": "Anavori: Small daily actions. A better life. Build meaningful habits, stay consistent with your goals, and track your personal growth.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
