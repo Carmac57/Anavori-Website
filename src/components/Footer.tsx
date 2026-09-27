@@ -8,6 +8,7 @@ interface FooterProps {
   onOpenPrivacy?: () => void;
   onOpenTerms?: () => void;
   onOpenSecurity?: () => void;
+  onOpenDeletion?: () => void;
 }
 
 export function Footer({
@@ -15,6 +16,7 @@ export function Footer({
   onOpenPrivacy,
   onOpenTerms,
   onOpenSecurity,
+  onOpenDeletion,
 }: FooterProps) {
   const openGooglePlay = () => {
     window.open(
@@ -119,6 +121,20 @@ export function Footer({
                   Security Model
                 </a>
               </li>
+              <li>
+                <a
+                  href={`${PAGES_BASE}/account-deletion`}
+                  onClick={(e) => {
+                    if (onOpenDeletion) {
+                      e.preventDefault();
+                      onOpenDeletion();
+                    }
+                  }}
+                  className="text-slate-600 hover:text-emerald-700 transition-colors font-medium cursor-pointer"
+                >
+                  Account Deletion Request
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -169,6 +185,19 @@ export function Footer({
                 className="hover:text-emerald-700 font-semibold text-slate-700 cursor-pointer transition-colors"
               >
                 Security Model
+              </a>
+              <span>•</span>
+              <a
+                href={`${PAGES_BASE}/account-deletion`}
+                onClick={(e) => {
+                  if (onOpenDeletion) {
+                    e.preventDefault();
+                    onOpenDeletion();
+                  }
+                }}
+                className="hover:text-emerald-700 font-semibold text-slate-700 cursor-pointer transition-colors"
+              >
+                Account Deletion
               </a>
             </div>
           </div>

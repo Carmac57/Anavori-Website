@@ -21,9 +21,10 @@ interface FAQItem {
 
 interface FAQProps {
   onOpenPrivacy?: () => void;
+  onOpenDeletion?: () => void;
 }
 
-export function FAQ({ onOpenPrivacy }: FAQProps) {
+export function FAQ({ onOpenPrivacy, onOpenDeletion }: FAQProps) {
   // Allow toggling items, default the first item open
   const [openId, setOpenId] = useState<string | null>("faq-1");
 
@@ -183,6 +184,37 @@ export function FAQ({ onOpenPrivacy }: FAQProps) {
       ),
       rawAnswer:
         "Anavori is designed with user privacy in mind. For detailed information about how information is collected, stored, and used, please refer to the Anavori Privacy Policy.",
+    },
+    {
+      id: "faq-9b",
+      question: "How do I delete my account and data?",
+      answer: (
+        <div className="space-y-3">
+          <p>
+            Most of your Anavori data (habits, journal, missions, and progress) is stored directly
+            on your device and can be removed by deleting the app or clearing its data in your
+            device settings.
+          </p>
+          <p>
+            To delete your account and any data associated with it, visit the{" "}
+            <a
+              href={`${PAGES_BASE}/account-deletion`}
+              onClick={(e) => {
+                if (onOpenDeletion) {
+                  e.preventDefault();
+                  onOpenDeletion();
+                }
+              }}
+              className="font-semibold text-emerald-700 hover:text-emerald-800 underline underline-offset-2 decoration-emerald-300 transition-colors cursor-pointer"
+            >
+              Account Deletion Request page
+            </a>{" "}
+            and submit a request. We process it as quickly as possible, usually within 30 days.
+          </p>
+        </div>
+      ),
+      rawAnswer:
+        "Most of your Anavori data (habits, journal, missions, and progress) is stored directly on your device and can be removed by deleting the app or clearing its data in your device settings. To delete your account and any data associated with it, visit the Account Deletion Request page and submit a request. We process it as quickly as possible, usually within 30 days.",
     },
     {
       id: "faq-10",

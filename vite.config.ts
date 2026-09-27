@@ -18,6 +18,10 @@ function spaRoutesPlugin() {
           'terms',
           'security',
           'security-model',
+          'account-deletion',
+          'deletion',
+          'delete-account',
+          'data-deletion',
         ];
         for (const route of routes) {
           const routeDir = path.join(distDir, route);

@@ -16,6 +16,7 @@ import { FinalCTA } from "./components/FinalCTA";
 import { PrivacyPolicy } from "./components/PrivacyPolicy";
 import { TermsOfService } from "./components/TermsOfService";
 import { SecurityModel } from "./components/SecurityModel";
+import { AccountDeletion } from "./components/AccountDeletion";
 import { Footer } from "./components/Footer";
 import { PAGES_BASE } from "./config";
 
@@ -30,7 +31,7 @@ const navLinks: NavLink[] = [
   { name: "FAQ", href: "#faq" },
 ];
 
-type AppRoute = "home" | "privacy" | "terms" | "security";
+type AppRoute = "home" | "privacy" | "terms" | "security" | "deletion";
 
 function parseCurrentRoute(): AppRoute {
   if (typeof window === "undefined") return "home";
@@ -77,6 +78,27 @@ function parseCurrentRoute(): AppRoute {
     return "security";
   }
 
+  if (
+    path === "/account-deletion" ||
+    path === "/deletion" ||
+    path === "/delete-account" ||
+    path === "/data-deletion" ||
+    path.endsWith("/account-deletion") ||
+    path.endsWith("/deletion") ||
+    path.endsWith("/delete-account") ||
+    path.endsWith("/data-deletion") ||
+    hash === "#account-deletion" ||
+    hash === "#deletion" ||
+    hash === "#delete-account" ||
+    hash === "#data-deletion" ||
+    hash === "#/account-deletion" ||
+    hash === "#/deletion" ||
+    hash === "#/delete-account" ||
+    hash === "#/data-deletion"
+  ) {
+    return "deletion";
+  }
+
   return "home";
 }
 
@@ -104,6 +126,12 @@ export default function App() {
   const navigateToSecurity = () => {
     window.history.pushState({ from: "app" }, "", `${PAGES_BASE}/security`);
     setCurrentRoute("security");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const navigateToDeletion = () => {
+    window.history.pushState({ from: "app" }, "", `${PAGES_BASE}/account-deletion`);
+    setCurrentRoute("deletion");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -182,6 +210,8 @@ export default function App() {
       document.title = "Anavori — Terms of Service";
     } else if (currentRoute === "security") {
       document.title = "Anavori — Security Model";
+    } else if (currentRoute === "deletion") {
+      document.title = "Anavori — Account Deletion Request";
     } else {
       document.title = "Anavori — Small daily actions. A better life.";
     }
@@ -262,6 +292,11 @@ export default function App() {
     return <SecurityModel onBack={navigateToFAQ} />;
   }
 
+  // If on Account deletion route, render dedicated Account Deletion page
+  if (currentRoute === "deletion") {
+    return <AccountDeletion onBack={navigateToFAQ} />;
+  }
+
   return (
     <div className="min-h-screen bg-white text-slate-800 font-sans selection:bg-emerald-100 selection:text-emerald-900 relative">
       {/* Premium Sticky Navigation Bar */}
@@ -280,7 +315,7 @@ export default function App() {
         <WhoIsAnavoriFor />
         <MeetAna />
         <WhyWeBuiltAnavori />
-        <FAQ onOpenPrivacy={navigateToPrivacy} />
+        <FAQ onOpenPrivacy={navigateToPrivacy} onOpenDeletion={navigateToDeletion} />
         <FinalCTA />
       </main>
 
@@ -290,6 +325,7 @@ export default function App() {
         onOpenPrivacy={navigateToPrivacy}
         onOpenTerms={navigateToTerms}
         onOpenSecurity={navigateToSecurity}
+        onOpenDeletion={navigateToDeletion}
       />
 
       {/* Simulated Push Notification Toast */}
