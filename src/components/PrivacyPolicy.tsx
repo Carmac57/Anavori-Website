@@ -463,11 +463,20 @@ export function PrivacyPolicy({ onBack, onNavigateTerms }: PrivacyPolicyProps) {
               </p>
             </div>
 
+            <div className="mt-4 pt-3 border-t border-slate-100">
+              <h3 className="text-base font-semibold text-slate-900 mb-1">
+                Firebase Crashlytics
+              </h3>
+              <p className="text-sm sm:text-base leading-relaxed">
+                Firebase Crashlytics is used to collect crash and error diagnostics, such as stack traces and non-personal device and operating-system information at the time of a crash. This information is used to identify and fix stability issues.
+              </p>
+            </div>
+
             <p className="text-sm sm:text-base leading-relaxed mt-4">
               Firebase is not used by Anavori to store your journal entries, Ana conversations, habits, or other personal-growth content.
             </p>
             <p className="text-sm sm:text-base leading-relaxed mt-2 font-medium text-slate-800">
-              Anavori&apos;s mobile application does not currently use Firebase Analytics, Firebase Crashlytics, or Firebase advertising SDKs.
+              Anavori&apos;s mobile application does not use Firebase Analytics or Firebase advertising SDKs.
             </p>
           </section>
 
