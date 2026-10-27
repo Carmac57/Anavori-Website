@@ -44,7 +44,7 @@ export function Hero() {
 
   const openGooglePlay = () => {
     window.open(
-      "https://play.google.com/store/apps/details?id=com.anavori.app",
+      "https://play.google.com/store/apps/details?id=com.anavori.anavori_mobile&pli=1",
       "_blank",
       "noopener,noreferrer"
     );

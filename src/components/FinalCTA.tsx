@@ -9,7 +9,7 @@ import {
   Clock 
 } from "lucide-react";
 
-const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.anavori.app";
+const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.anavori.anavori_mobile&pli=1";
 
 function GooglePlayIcon({ className = "w-5 h-5" }: { className?: string }) {
   return (
